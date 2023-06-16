@@ -51,7 +51,7 @@ jobs:
     - name: Run tests
       run: |
         make envtest
-        KUBEBUILDER_ASSETS=$(pwd)/bin/k8s/current E2E_ENABLED=${{ github.event_name == 'release' }} go test ./...
+        KUBEBUILDER_ASSETS=$(pwd)/bin/k8s/current E2E_ENABLED=${{ github.event_name == 'release' }} go test -count 1 ./...
   
   build:
     runs-on: ubuntu-22.04
